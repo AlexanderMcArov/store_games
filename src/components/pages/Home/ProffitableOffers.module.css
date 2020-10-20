@@ -3,9 +3,13 @@
     padding: 0px;
     display: flex;
     flex-direction: row;
+    transition: all 0.3s;
+}
+.Header:hover{
+    background: #3490d7;
 }
 .Flag{
-    width: 40px;
+    width: 34px;
     position: absolute;
     z-index: 10;
 
@@ -22,23 +26,29 @@
     text-align: center;
     line-height: 53px;
     white-space: nowrap;
+    transition: all 0.3s;
 }
 .GameItem{
     position: relative;
     height: 120px;
     color: white;
     background: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
 }
 .GameItem img{
-    height: inherit;
+    height: 200px;
+    position: absolute;
+    top: -30px;
+    left: -30px;
 }
 .ItemDesc{
-    font-size: 13px;
+    padding: 5px 0px 5px 0px;
+    font-size: 15px;
     background: rgba(0, 0, 0, .6);
     width: 100%;
-    height: min-content;
+    height: 40px;
     position: absolute;
-    top: 90px;
+    top: 80px;
     left: 20px;
     z-index: 11;
 }

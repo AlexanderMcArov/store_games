@@ -41,7 +41,7 @@ export default class VerticalSwipeToSlide extends Component {
                         return (
                             <div className={Style.GameItem}>
                                 <img src="https://zaka-zaka.com/images/game/p732/playerunknowns-battlegrounds.jpg"></img>
-                                <div className={Style.ItemDesc}>{item}dsadsadsa</div>
+                                <div className={Style.ItemDesc}>{item}</div>
                             </div>
                         )
                     })}

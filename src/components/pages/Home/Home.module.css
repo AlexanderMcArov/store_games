@@ -22,3 +22,9 @@
     transition: all 0.3s;
     overflow: hidden;
 }
+.Store{
+    display: flex;
+    margin-top: 10px;
+    flex-direction: row;
+    justify-content: center;
+}
