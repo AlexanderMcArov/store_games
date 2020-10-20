@@ -8,6 +8,7 @@
     background: white;
     display: flex;
     justify-content: center;
+    z-index: 1000;
 }
 .Logo{
     width: 200px;

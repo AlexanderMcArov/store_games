@@ -1,0 +1,7 @@
+.Discription{
+    background: rgb(220, 220, 220);
+    padding: 10px 0px 10px 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}

@@ -20,7 +20,7 @@ export default function Navbar() {
 
     return (
         <div className={Style.Navbar}>
-            <div className="row aic">
+            <div className="row aic jca">
                 <div className={Style.Logo}>
                     <img src={logo}></img>
                 </div>

@@ -2,11 +2,23 @@
     width: 100%;
     height: 400px;
 }
+.CarouselItem{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
 .HappyHour{
     width: 690px;
-    height: 400px;
+    height: 400px;  
+}
+.HappyHour img{
+    height: 100%;  
 }
 .ProfitOffer{
-    width: 290px;
+    margin-left: 20px;
+    width: 310px;
     height: 400px;
+    transition: all 0.3s;
+    overflow: hidden;
 }

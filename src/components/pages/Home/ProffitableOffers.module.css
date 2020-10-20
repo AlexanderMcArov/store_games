@@ -1,0 +1,44 @@
+.Header{
+    background: rgb(150, 150, 150);    
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+}
+.Flag{
+    width: 40px;
+    position: absolute;
+    z-index: 10;
+
+}
+.Flag img{
+    width: 100%;
+}
+.Title{
+    padding: 0px 10px 0px 35px;
+    width: 100%;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 53px;
+    white-space: nowrap;
+}
+.GameItem{
+    position: relative;
+    height: 120px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+}
+.GameItem img{
+    height: inherit;
+}
+.ItemDesc{
+    font-size: 13px;
+    background: rgba(0, 0, 0, .6);
+    width: 100%;
+    height: min-content;
+    position: absolute;
+    top: 90px;
+    left: 20px;
+    z-index: 11;
+}
