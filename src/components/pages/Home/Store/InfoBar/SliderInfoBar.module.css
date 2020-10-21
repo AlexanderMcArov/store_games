@@ -9,6 +9,7 @@
 }
 .Header:hover{
     background: #3490d7;
+    color: white;
 }
 .Flag{
     width: 34px;
