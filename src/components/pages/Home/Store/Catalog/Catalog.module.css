@@ -5,6 +5,7 @@
 .HeaderLinks{
     display: flex;
     justify-content: space-around;
+    padding-bottom: 15px;
 }
 .btnHeaderLink{
     background: 0;

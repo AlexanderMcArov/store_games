@@ -1,5 +1,7 @@
 import React from 'react'
+import GamesList from './GamesList'
 import Style from './Catalog.module.css'
+
 function Catalog() {
     return (
         <div className={Style.Main}>
@@ -9,6 +11,7 @@ function Catalog() {
                 <button className={Style.btnHeaderLink}>Популярные</button>
                 <button className={Style.btnHeaderLink}>Ожидаемые</button>
             </div>
+            <GamesList/>
         </div>
     )
 }

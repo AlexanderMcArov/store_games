@@ -1,0 +1,53 @@
+.Main{
+    width: 100%;
+    height: 120px;
+    background: white;
+    margin: 10px 0px;
+    padding: 0px 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.GameIMG{
+    height: 120px;
+}
+.GameCaption{
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.GameDiscount{
+    width: 60px;
+    position: absolute;
+    left: 415px;
+    top: 40px;
+    padding: 5px 10px;
+    color: white;
+    background: crimson;
+}
+.GamePrices{
+    height: 30px;
+    width: 256px;
+    position: absolute;
+    top: 90px;
+    left: 0px;
+    color: black;
+    background: white;
+    padding-left: 20px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 15px 0px 0px;
+}
+.PriceDiscount{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 1px 10px;
+    border: rgba(150, 150, 150,.7) 1px solid;
+    color: rgba(150, 150, 150,.7);
+}
+.PriceMain{
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0px 15px;
+}
