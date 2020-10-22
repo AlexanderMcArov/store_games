@@ -5,7 +5,7 @@
 .App{
   display: flex;
   justify-content: center;
-  height: 1500px;
+  height: 2000px;
   background: rgb(19,180,127);
   background: linear-gradient(180deg, rgba(19,180,127,0.5) 0%, rgba(201,93,115,0.5) 100%);
 }

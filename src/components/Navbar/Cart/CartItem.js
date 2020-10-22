@@ -20,28 +20,20 @@ function CartItem(props) {
     let data = props.data
     // let src = 
     console.log(data);
+    console.log(count);
 
     return (
         <div className={Style.Main}>
             <div className={Style.Header}>
                 <span>{data.caption}</span>
-                <span>ID:{data.id}</span>
-            </div>
-            <div className={Style.BodyItem}>
-                <img src={data.src}></img>
-                <div className="col">
-                <div className={Style.BodyItem_Description}>{data.discription}</div>
-                <div className={Style.GenresItem}>Strategy Steam
-                    <div className={Style.TotalItem}>
-                    <div style={{margin: '0px 10px'}}>
-                        <button onClick={()=>setCount(loop--)}>-</button>
-                            <span style={{margin: '5px 10px'}}>{count}</span>
-                        <button onClick={()=>setCount(loop++)}>+</button>
-                    </div>
-                    {data.price * count}
-                    <button>Удалить</button>
-                    </div>
+                <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                <div className={Style.Counter}>
+    <button className={Style.Btns} onClick={()=>setCount(loop--)}>{'<'}</button>
+                <span>{count}</span>
+    <button className={Style.Btns} onClick={()=>setCount(loop++)}>{'>'}</button>
                 </div>
+                <span>{data.price}Р</span>
+                <span>Итого: {data.price * count}Р</span>
                 </div>
             </div>
         </div>

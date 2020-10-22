@@ -18,9 +18,9 @@ function Cart() {
     return (
         <div className={Style.Main}>            
             <img src={Shopping}/>Мои покупки
-            <div className={Style.CartSize}>
+            {cartList.length > 0 ? <div className={Style.CartSize}>
                {cartList.length}
-            </div>
+            </div> : ''}
         </div>
     )
 }

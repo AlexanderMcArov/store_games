@@ -41,6 +41,9 @@
     top: -30px;
     left: -30px;
 }
+.GameItem:hover{
+    cursor: pointer;
+}
 .ItemDesc{
     padding: 5px 0px 5px 0px;
     font-size: 15px;
@@ -49,6 +52,5 @@
     height: 40px;
     position: absolute;
     top: 80px;
-    left: 20px;
     z-index: 11;
 }
