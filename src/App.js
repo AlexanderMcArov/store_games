@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import Warranty from './components/pages/Warranty'
 import Catalog from './components/pages/Catalog'
 import Faq from './components/pages/FAQ'
+import CartList from './components/Navbar/Cart/CartList'
 import PopularLinks from './components/PopularLinks/PopularLinks'
 import Home from './components/pages/Home/Home'
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/warranty' component={Warranty}/>
         <Route path='/catalog' component={Catalog}/>
         <Route path='/faq' component={Faq}/>
+        <Route path='/cart' component={CartList}/>
       </Switch>
       </div>
     </div>

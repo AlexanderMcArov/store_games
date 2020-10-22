@@ -1,0 +1,19 @@
+.Main{
+    position: relative;
+}
+.Main img{
+    height: 16px;
+}
+.CartSize{
+    width: 13px;
+    height: 13px;
+    font-size: 10px;
+    text-align: center; 
+    line-height: 12px;   
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+}

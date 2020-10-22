@@ -1,0 +1,44 @@
+.Main{
+    border: rgb(200, 200, 200) 2px solid;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
+}
+.Header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 10px;
+    border-bottom: black 1px solid;
+}
+.BodyItem{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.BodyItem img{
+    height: 120px;
+}
+.BodyItem_Description{
+    width: 400px;
+    height: 80px;
+    padding: 0px 10px;
+    text-overflow: clip;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+.GenresItem{
+    border-top: rgba(100, 100, 100, .7) 1px solid;
+    color: rgba(100, 100, 100,.9);
+    display: flex;
+    justify-content: space-between;
+}
+.BTNS{
+    display: flex;
+    justify-content: flex-end;
+}
+.TotalItem{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 10px;
+}

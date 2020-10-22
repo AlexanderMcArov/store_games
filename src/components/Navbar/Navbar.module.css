@@ -45,6 +45,8 @@
 
 .Buttons_Links{
     padding: 0px 25px;
+    display: flex;
+    flex-direction: row;
 }
 .Buttons_Link{
     color: black;
