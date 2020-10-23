@@ -18,7 +18,6 @@ function CartItem(props) {
     //   }
     
     let data = props.data
-    // let src = 
     console.log(data);
     console.log(count);
 

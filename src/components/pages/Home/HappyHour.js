@@ -6,6 +6,8 @@ import {
   CarouselIndicators,
   CarouselCaption
 } from 'reactstrap';
+import {useSelector, useDispatch} from 'react-redux'
+import {cartAddItem} from '../../../redux/actions/CartShop'
 
 import Style from './HappyHour.module.css'
 const items = [
@@ -39,6 +41,7 @@ const items = [
 ];
 
 const Example = (props) => {
+  const dispatch = useDispatch()
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);  
 

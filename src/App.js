@@ -7,7 +7,7 @@ import Faq from './components/pages/FAQ'
 import CartList from './components/Navbar/Cart/CartList'
 import PopularLinks from './components/PopularLinks/PopularLinks'
 import Home from './components/pages/Home/Home'
-
+import Footer from './components/Footer/Footer'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -24,6 +24,7 @@ function App() {
         <Route path='/faq' component={Faq}/>
         <Route path='/cart' component={CartList}/>
       </Switch>
+      {/* <Footer /> */}
       </div>
     </div>
   );

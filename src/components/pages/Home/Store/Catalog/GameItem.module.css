@@ -51,3 +51,14 @@
     font-weight: 700;
     padding: 0px 15px;
 }
+.btn{
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    font-weight: 700;
+    border: 0;
+    color: rgba(100, 50, 100, .7);
+}
+.btn:hover{
+    color: rgba(250, 80, 250, 1);
+}

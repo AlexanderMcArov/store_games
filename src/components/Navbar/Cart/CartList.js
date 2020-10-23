@@ -10,10 +10,6 @@ function CartList() {
         return state.cartReducer.CartItems
     })
 
-    console.log(cartList);
-
-
-
     return (
         <div className={Style.Main}>
             <div className={Style.Header}>Моя Корзина</div>

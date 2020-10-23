@@ -17,7 +17,7 @@ function Cart() {
 
     return (
         <div className={Style.Main}>            
-            <img src={Shopping}/>Мои покупки
+            <img src={Shopping}/>Корзина
             {cartList.length > 0 ? <div className={Style.CartSize}>
                {cartList.length}
             </div> : ''}
