@@ -12,6 +12,9 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  // initial
+  if(localStorage.getItem('cart') == null) localStorage.setItem('cart',JSON.stringify([]))
+  // <<<
   return (
     <div className="App">
       <div className="container">

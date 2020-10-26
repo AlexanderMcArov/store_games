@@ -1,9 +1,12 @@
 import {
-    CART_ADD_ITEM
+    CART_ADD_ITEM,
+    CART_UPDATE_ITEM,
+    CART_UPDATE_TOTALPRICE
 } from '../actions/constans'
 
 const initialState = {
-    CartItems: []
+    CartItems: [],
+    TotalPrice: 0
 }
 
 export default function cardAddReducer(state = initialState, action){
@@ -14,6 +17,16 @@ export default function cardAddReducer(state = initialState, action){
                 ...state,
                 CartItems: action.cart
             }    
+        case CART_UPDATE_ITEM:
+            return{
+                ...state,
+                CartItems: action.cart
+            }    
+        case CART_UPDATE_TOTALPRICE:
+        return{
+            ...state,
+            TotalPrice: action.total
+        } 
         default:
             return state
     }

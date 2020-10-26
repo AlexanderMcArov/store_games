@@ -17,6 +17,9 @@
 .Logo img{
     width: 200px;
 }
+.Logo:hover{
+    cursor: pointer;
+}
 .Search{
     color: #3490d7;
     font-size: 13px;
