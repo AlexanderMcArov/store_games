@@ -29,7 +29,7 @@ export default function Navbar() {
                     <Link to="/"><img src={logo} ></img></Link>
                 </div>
                 <div className={Style.Search}>                    
-                    {isSearch ? <div className={Style.LiveInput}><img src={Search} onClick={()=>setSearh(!isSearch)}></img><LiveInput /></div> : <span onClick={()=>setSearh(!isSearch)}><img src={Search}></img>ПОИСК</span>}
+                    {isSearch ? <div className={Style.LiveInput}><LiveInput /></div> : <span onClick={()=>setSearh(!isSearch)}><img src={Search}></img>ПОИСК</span>}
                 </div>
                 {!isSearch ? <div className={Style.Links}>
                     <Link to='/warranty' className={Style.Link}>Гарантии</Link>

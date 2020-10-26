@@ -30,6 +30,9 @@
     height: 12px;
     margin-right: 5px;
 }
+.Search:hover{
+    cursor: pointer;
+}
 .Links{
     display: flex;
     align-items: center;
