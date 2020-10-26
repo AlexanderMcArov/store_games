@@ -13,9 +13,27 @@
     overflow: hidden;
     background: url(../../../../images/sections-icons.png) no-repeat 10px 7px;
 }
+.CategorySections img{
+    width: 15px;
+    margin-left: 10px;
+}
+.CategorySections:hover{
+    cursor: pointer;
+}
+.CategorySectionsItem img{
+    width: 15px;
+    margin-right: 10px;
+}
 .CategorySectionsItem{
+    display: flex;
+    justify-content: start;
+    align-items: center;
     width: 100%;
     font-size: 14px;
     color: #333;
     padding: 3px 0px 3px 35px;
+}
+.CategorySectionsItem:hover{
+    cursor: pointer;
+    font-weight: 600;
 }

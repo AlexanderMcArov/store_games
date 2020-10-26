@@ -12,3 +12,17 @@
     color: #333;
     padding: 3px 0px 3px 35px;
 }
+.Header img{
+    width: 15px;
+    margin-left: 10px;
+}
+.Header:hover{
+    cursor: pointer;
+}
+.Item img{
+    width: 15px;
+    margin-right: 10px;
+}
+.Item:hover{
+    cursor: pointer;
+}
