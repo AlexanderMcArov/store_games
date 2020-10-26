@@ -1,46 +1,46 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import GameItem from './GameItem'
 import Style from './GamesList.module.css'
+import Axios from 'axios'
+
 export default function GamesList() {
 
-    let GamesListData = [
-        {
-            id: 1,
-            src: 'https://zaka-zaka.com/images/game/c732/crusader-kings-iii.jpg',
-            altText: 'Crusader Kings',
-            caption: 'Crusader Kings',
-            discription: `Любите дворцовые интриги?
-        Примерьте на себе корону правителя скромного графства или даже целой империи! Вы можете править с гордо поднятой головой на самых разнообразных землях, начиная от территории современ...`,
-            discount: 0,
-            price: 1300,
-        },
-        {
-            id: 2,
-            src: 'https://zaka-zaka.com/images/game/p732/playerunknowns-battlegrounds.jpg',
-            altText: 'Playerunknowns Battlegrounds',
-            caption: 'Playerunknowns Battlegrounds',
-            discription: `Любите дворцовые интриги?
-        Примерьте на себе корону правителя скромного графства или даже целой империи! Вы можете править с гордо поднятой головой на самых разнообразных землях, начиная от территории современ...`,
-            discount: 2,
-            price: 350,
-        },
-        {
-            id: 3,
-            src: 'https://zaka-zaka.com/images/slider/732/1602842381-slayd.jpg?1602842734',
-            altText: 'Assassins Creed',
-            caption: 'Assassins Creed',
-            discription: `Любите дворцовые интриги?
-        Примерьте на себе корону правителя скромного графства или даже целой империи! Вы можете править с гордо поднятой головой на самых разнообразных землях, начиная от территории современ...`,
-            discount: 24,
-            price: 1200,
-        }
-    ]
+    const section = useSelector(state => {
+        console.log('section: ', state.FilterReducer.section);
+        return state.FilterReducer.section
+    })
+    const genres = useSelector(state => {
+        console.log('genres: ', state.FilterReducer.genres);
+        return state.FilterReducer.genres
+    })
+    const category = useSelector(state => {
+        console.log('category: ', state.FilterReducer.category);
+        return state.FilterReducer.category
+    })
+    
+    console.log('FilterSettings:',section,genres,category);
+
+    const [data,setData] = useState([])
+
+    useEffect(()=>{
+        let req = '?'
+        if(section > 0) req += 'section='+section+'&'
+        if(genres > 0) req += 'genres='+genres+'&'
+        if(category > 0) req += 'category='+category+'&'
+        console.log('FILTERSETTINGS:::',req);
+        Axios.get('http://localhost:3333/goods'+req)
+        .then(res=>{
+            console.log(res.data)
+            setData(res.data)
+        })
+    },[section,genres,category])
 
     return (
         <div className={Style.Main}>
             {
-                GamesListData.map(item => {
-                    return <GameItem data={item} />
+                data.map(item => {
+                    return <GameItem data={item} key={item.id + '-GameItem'}/>
                 })
             }
         </div>

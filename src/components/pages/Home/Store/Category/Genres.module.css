@@ -12,3 +12,17 @@
     color: #333;
     padding: 3px 0px 3px 35px;
 }
+.GenresSections img{
+    width: 15px;
+    margin-left: 10px;
+}
+.GenresSections:hover{
+    cursor: pointer;
+}
+.GenresSectionsItem img{
+    width: 15px;
+    margin-right: 10px;
+}
+.GenresSectionsItem:hover{
+    cursor: pointer;
+}

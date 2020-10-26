@@ -2,7 +2,9 @@ import React from 'react'
 
 function LiveInput() {
     return (
-        <input></input>
+        <div>
+            <input style={{width: '270px'}}></input>
+        </div>
     )
 }
 
