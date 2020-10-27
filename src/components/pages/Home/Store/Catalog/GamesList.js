@@ -25,9 +25,12 @@ export default function GamesList() {
 
     useEffect(()=>{
         let req = '?'
-        if(section > 0) req += 'section='+section+'&'
-        if(genres > 0) req += 'genres='+genres+'&'
-        if(category > 0) req += 'category='+category+'&'
+        if((section + genres + category) == 0) req += '_limit=8'
+        else{
+            if(section > 0) req += 'section='+section+'&'
+            if(genres > 0) req += 'genres='+genres+'&'
+            if(category > 0) req += 'category='+category+'&'
+        }
         console.log('FILTERSETTINGS:::',req);
         Axios.get('http://localhost:3333/goods'+req)
         .then(res=>{

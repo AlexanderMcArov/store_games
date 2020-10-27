@@ -18,16 +18,34 @@
     position: absolute;
     width: 100%;
     height: min-content;
+    max-height: 120px;
+    overflow-y: scroll;
     z-index: 10;
     background: rgba(0, 0, 0, 0);
 }
 .SearchItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 5px;
     border-bottom: rgb(200, 200, 200) 1px solid;
     border-radius: 15px;
     background: white;
     padding-left: 15px;
+    padding-right: 15px;
 }
 .SearchItem:hover{
     background: rgb(230, 230, 230);
 }
+
+
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

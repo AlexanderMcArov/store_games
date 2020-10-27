@@ -6,7 +6,8 @@ function LiveItem(props) {
     console.log(data);
     return (
         <div className={Style.SearchItem} onClick={()=>console.log(data)}>
-            {data}
+            <div>{data.caption}</div>
+            <div style={{color: 'blue'}}>{data.price}Р</div>
         </div>
     )
 }
