@@ -1,0 +1,11 @@
+.Main{
+    width: 500px;
+}
+.Main form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+}

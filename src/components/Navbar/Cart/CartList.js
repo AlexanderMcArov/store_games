@@ -19,6 +19,7 @@ function CartList() {
         return state.cartReducer.TotalPrice
     })
 
+    console.log('CARLIST:',cartList);
 
     useEffect(()=>{
         dispatch(cartDownLoadItem())
@@ -34,7 +35,37 @@ function CartList() {
                     }) : <div className={Style.CartEmpty}>Корзина пуста...</div>
                 }
                 { cartList.length > 0 ?
-                <div className={Style.Total}>Общая стоимость: {totalPrice} <Link className={Style.Link} to="/createorder">Оформить заказ</Link> </div> : ''
+                <div className={Style.Total}>Общая стоимость: {totalPrice} 
+                {/* <Link className={Style.Link} to="/createorder">Оплатить</Link>  */}
+                <button className={Style.Link} onClick={()=>{
+                    fetch('https://secure.wayforpay.com/pay',{
+                        method: 'POST',
+                        body: JSON.stringify({
+                        merchantAccount: 'test_merch_n1',
+                        merchantAuthType: 'SimpleSignature',
+                        merchantDomainName: 'www.market.ua',
+                        orderReference: 'DH1603818166',
+                        orderDate: '1415379863',
+                        amount: '1547.36',
+                        currency: 'UAH',
+                        orderTimeout: '49000',
+                        productName: [
+                          'Процессор Intel Core i5-4670 3.4GHz',
+                          'Память Kingston DDR3-1600 4096MB PC3-12800'
+                        ],
+                        productPrice: [ '1000', '547.36' ],
+                        productCount: [ '1', '1' ],
+                        clientFirstName: 'Вася',
+                        clientLastName: 'Пупкин',
+                        clientAddress: 'пр. Гагарина, 12',
+                        clientCity: 'Днепропетровск',
+                        clientEmail: 'some@mail.com',
+                        defaultPaymentSystem: 'card',
+                        merchantSignature: 'e30212dd928060b5829c9fee8752a987'
+                      })
+                    })
+                }}>Оплатить</button> 
+                </div> : ''
                 }
             </div>
         </div>

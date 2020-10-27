@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
+    min-height: 300px;
     background: white;
 }
 .LeftBar{
@@ -36,4 +37,16 @@
     border-bottom: black 1px solid;
     padding-bottom: 5px;
     font-weight: 600;
+}
+
+/* PROFILE */
+
+.Profile_Main{
+
+}
+.Profile_Header{
+    
+}
+.Profile_Header img{
+    width: 200px;
 }

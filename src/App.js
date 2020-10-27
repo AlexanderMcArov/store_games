@@ -8,6 +8,7 @@ import CartList from './components/Navbar/Cart/CartList'
 import PopularLinks from './components/PopularLinks/PopularLinks'
 import Home from './components/pages/Home/Home'
 import Account from './components/Account/Account'
+import Createorder from './components/Createorder/Createorder'
 import Footer from './components/Footer/Footer'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -28,6 +29,7 @@ function App() {
         <Route path='/faq' component={Faq}/>
         <Route path='/cart' component={CartList}/>
         <Route path='/auth' component={Account}/>
+        <Route path='/createorder' component={Createorder}/>
       </Switch>
       {/* <Footer /> */}
       </div>
