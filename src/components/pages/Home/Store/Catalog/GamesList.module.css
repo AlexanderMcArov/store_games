@@ -1,3 +1,20 @@
 .Main{
     padding: 5px;
+    text-align: center;
+}
+.EmptyImg{
+    width: 200px;
+    animation: rotateImg;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotateImg{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(-360deg);        
+    }
 }

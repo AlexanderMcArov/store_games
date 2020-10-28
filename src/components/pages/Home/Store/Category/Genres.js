@@ -4,9 +4,13 @@ import {useSelector, useDispatch} from 'react-redux'
 import {changeGenresSettings} from '../../../../../redux/actions/GameListFilter'
 
 function Genres() {
+    let obj = JSON.parse(localStorage.getItem('filter'))
+    const [filter,setFilter] = useState(obj.genres)
+    obj.genres = filter
+    localStorage.setItem('filter',JSON.stringify(obj))
 
     const dispatch = useDispatch()
-    const [filter,setFilter] = useState(0)    
+ 
     useEffect(()=>{
         dispatch(changeGenresSettings(filter))
     },[filter])

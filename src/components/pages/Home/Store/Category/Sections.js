@@ -4,8 +4,12 @@ import {useSelector, useDispatch} from 'react-redux'
 import {changeSectionSettings} from '../../../../../redux/actions/GameListFilter'
 
 export default function Sections() {
+    let obj = JSON.parse(localStorage.getItem('filter'))
     const dispatch = useDispatch()
-    const [filter,setFilter] = useState(0)
+    const [filter,setFilter] = useState(obj.section)
+    obj.section = filter
+    localStorage.setItem('filter',JSON.stringify(obj))
+
     dispatch(changeSectionSettings(filter))
     return (
         <div style={{marginBottom: '15px'}}>

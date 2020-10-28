@@ -15,23 +15,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   // initial
-  if(localStorage.getItem('cart') == null) localStorage.setItem('cart',JSON.stringify([]))
+  if (localStorage.getItem('cart') == null) localStorage.setItem('cart', JSON.stringify([]))
+  if (localStorage.getItem('filter') == null) localStorage.setItem('filter', JSON.stringify({
+    page: 1,
+    section: 0,
+    genres: 0,
+    category: 0,
+    price: [0, 3500]
+  }))
   // <<<
   return (
     <div className="App">
       <div className="container">
-      <Navbar />
-      <PopularLinks />
-      <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route path='/warranty' component={Warranty}/>
-        <Route path='/catalog' component={Catalog}/>
-        <Route path='/faq' component={Faq}/>
-        <Route path='/cart' component={CartList}/>
-        <Route path='/auth' component={Account}/>
-        <Route path='/createorder' component={Createorder}/>
-      </Switch>
-      {/* <Footer /> */}
+        <Navbar />
+        <PopularLinks />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/warranty' component={Warranty} />
+          <Route path='/catalog' component={Catalog} />
+          <Route path='/faq' component={Faq} />
+          <Route path='/cart' component={CartList} />
+          <Route path='/auth' component={Account} />
+          <Route path='/createorder' component={Createorder} />
+        </Switch>
+        {/* <Footer /> */}
       </div>
     </div>
   );

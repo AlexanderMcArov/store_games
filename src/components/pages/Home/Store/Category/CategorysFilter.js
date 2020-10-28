@@ -4,9 +4,12 @@ import {useSelector, useDispatch} from 'react-redux'
 import {changeCategorySettings} from '../../../../../redux/actions/GameListFilter'
 
 function CategorysFilter() {
+    let obj = JSON.parse(localStorage.getItem('filter'))
+    const [filter,setFilter] = useState(obj.category)
+    obj.category = filter
+    localStorage.setItem('filter',JSON.stringify(obj))
 
     const dispatch = useDispatch()
-    const [filter,setFilter] = useState(0)
     dispatch(changeCategorySettings(filter))
     console.log(filter);
     const src = 'https://i7.uihere.com/icons/936/532/876/category-rough-all-61c300dc1fbaca679f14eb63ba282c05.png'
