@@ -6,13 +6,13 @@ import Axios from 'axios'
 
 export default function VerticalSwipeToSlide(props) {
 
-    const [dataList,setDataList] = useState([])
+    const [dataList, setDataList] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch(props.url)
-            .then(res=>res.json())
-            .then(data=>setDataList(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setDataList(data))
+    }, [])
 
     const settings = {
         // dots: true,
@@ -22,9 +22,9 @@ export default function VerticalSwipeToSlide(props) {
         vertical: true,
         verticalSwiping: true,
         swipeToSlide: true,
-        speed: 1000,
+        speed: 2000,
         autoplay: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 5000*Math.random(),
         nextArrow: <></>,
         prevArrow: <></>,
         beforeChange: function (currentSlide, nextSlide) {
@@ -50,7 +50,13 @@ export default function VerticalSwipeToSlide(props) {
                     return (
                         <div className={Style.GameItem}>
                             <img src={item.src}></img>
-                    <div className={Style.ItemDesc}>{item.id}{item.caption}</div>
+                            <div className={Style.ItemDesc}>
+                            {item.caption}
+                            <div>
+                            {item.discount > 0 ? <span className={Style.PriceDiscount}>-{parseInt(item.price/100*item.discount)} Р</span> : ''}
+                            <span className={Style.PriceMain}>{item.price-parseInt(item.price/100*item.discount)}Р</span>
+                            </div>
+                            </div>
                         </div>
                     )
                 })}

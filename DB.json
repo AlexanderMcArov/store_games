@@ -148,6 +148,42 @@
             "section": 1,
             "genres": 3,
             "category": 3
+        },
+        {
+            "id": 2,
+            "src": "https://zaka-zaka.com/images/game/c732/crusader-kings-iii.jpg",
+            "altText": "Crusader Kings",
+            "caption": "Crusader Kings",
+            "discription": "Любите дворцовые интриги? Примерьте на себе корону правителя скромного графства или даже целой империи! Вы можете править с гордо поднятой головой на самых разнообразных землях, начиная от территории современ...",
+            "discount": 0,
+            "price": 1300,
+            "section": 1,
+            "genres": 3,
+            "category": 3
+        },
+        {
+            "id": 3,
+            "src": "https://zaka-zaka.com/images/game/c732/crusader-kings-iii.jpg",
+            "altText": "Crusader Kings",
+            "caption": "Crusader Kings",
+            "discription": "Любите дворцовые интриги? Примерьте на себе корону правителя скромного графства или даже целой империи! Вы можете править с гордо поднятой головой на самых разнообразных землях, начиная от территории современ...",
+            "discount": 0,
+            "price": 1300,
+            "section": 1,
+            "genres": 3,
+            "category": 3
+        },
+        {
+            "id": 4,
+            "src": "https://zaka-zaka.com/images/game/c732/crusader-kings-iii.jpg",
+            "altText": "Crusader Kings",
+            "caption": "Crusader Kings",
+            "discription": "Любите дворцовые интриги? Примерьте на себе корону правителя скромного графства или даже целой империи! Вы можете править с гордо поднятой головой на самых разнообразных землях, начиная от территории современ...",
+            "discount": 0,
+            "price": 1300,
+            "section": 1,
+            "genres": 3,
+            "category": 3
         }
     ],
     "discountList": [
@@ -162,18 +198,20 @@
             "section": 1,
             "genres": 3,
             "category": 3
-        },{
+        },
+        {
             "id": 2,
             "src": "https://zaka-zaka.com/images/game/c732/crusader-kings-iii.jpg",
             "altText": "Crusader Kings",
             "caption": "Crusader Kings",
             "discription": "Любите дворцовые интриги? Примерьте на себе корону правителя скромного графства или даже целой империи! Вы можете править с гордо поднятой головой на самых разнообразных землях, начиная от территории современ...",
-            "discount": 0,
+            "discount": 69,
             "price": 1200,
             "section": 1,
             "genres": 3,
             "category": 3
-        },{
+        },
+        {
             "id": 3,
             "src": "https://zaka-zaka.com/images/game/c732/crusader-kings-iii.jpg",
             "altText": "Crusader Kings",
@@ -184,7 +222,8 @@
             "section": 1,
             "genres": 3,
             "category": 3
-        },{
+        },
+        {
             "id": 4,
             "src": "https://zaka-zaka.com/images/game/c732/crusader-kings-iii.jpg",
             "altText": "Crusader Kings",
@@ -195,6 +234,6 @@
             "section": 1,
             "genres": 3,
             "category": 3
-        },
+        }
     ]
 }
