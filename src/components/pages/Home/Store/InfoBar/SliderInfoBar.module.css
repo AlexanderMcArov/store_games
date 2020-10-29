@@ -9,6 +9,7 @@
     flex-direction: row;
     transition: all 0.3s;
     padding-left: 10px;
+    z-index: 999999;
 }
 .Header:hover{
     background: #3490d7;

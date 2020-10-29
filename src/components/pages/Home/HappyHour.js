@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Axios from 'axios'
 import {
   Carousel,
   CarouselItem,
@@ -10,50 +11,31 @@ import {useSelector, useDispatch} from 'react-redux'
 import {cartAddItem} from '../../../redux/actions/CartShop'
 
 import Style from './HappyHour.module.css'
-const items = [
-  {
-    src: 'https://zaka-zaka.com/images/game/c732/crusader-kings-iii.jpg',
-    altText: 'Crusader Kings',
-    caption: 'Crusader Kings',
-    discription: `Любите дворцовые интриги?
-Примерьте на себе корону правителя скромного графства или даже целой империи! Вы можете править с гордо поднятой головой на самых разнообразных землях, начиная от территории современ...`,
-    discount: 0,
-    price: parseInt(100*Math.random()),
-  },
-  {
-    src: 'https://zaka-zaka.com/images/game/p732/playerunknowns-battlegrounds.jpg',
-    altText: 'Playerunknowns Battlegrounds',
-    caption: 'Playerunknowns Battlegrounds',
-    discription: `Любите дворцовые интриги?
-Примерьте на себе корону правителя скромного графства или даже целой империи! Вы можете править с гордо поднятой головой на самых разнообразных землях, начиная от территории современ...`,
-    discount: parseInt(100*Math.random()),
-    price: parseInt(100*Math.random()),
-  },
-  {
-    src: 'https://zaka-zaka.com/images/slider/732/1602842381-slayd.jpg?1602842734',
-    altText: 'Assassins Creed',
-    caption: 'Assassins Creed',
-    discription: `Любите дворцовые интриги?
-Примерьте на себе корону правителя скромного графства или даже целой империи! Вы можете править с гордо поднятой головой на самых разнообразных землях, начиная от территории современ...`,
-    discount: parseInt(100*Math.random()),
-    price: parseInt(100*Math.random()),
-  }
-];
+
+
 
 const Example = (props) => {
+  const [dataList,setDataList] = useState([])
+  useEffect(() => {
+    Axios.get('http://localhost:3333/HappyHour/')
+        .then(res => {
+            console.log(res.data)
+            setDataList(res.data)
+        })
+  }, [])
   const dispatch = useDispatch()
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);  
 
   const next = () => {
     if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+    const nextIndex = activeIndex === dataList.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   }
 
   const previous = () => {
     if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    const nextIndex = activeIndex === 0 ? dataList.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
   }
 
@@ -66,7 +48,7 @@ const Example = (props) => {
 
   },[])
 
-  const slides = items.map((item) => {
+  const slides = dataList.map((item,index) => {
       const data = {
         show: false,
         caption: item.caption,
@@ -77,7 +59,7 @@ const Example = (props) => {
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
+        key={index+'-HappyHourSlider'}
       >
         <img style={{height: '400px'}} src={item.src} alt={item.altText} />
         <div className={Style.Carousel_Item} 
@@ -89,7 +71,7 @@ const Example = (props) => {
             <div className={Style.Carousel_GamePrice}>
                 <div className={Style.Price_list}>
                     {item.discount > 0 ? <div className={Style.Discount}>-{item.discount}%</div> : ''}
-                    <div className={Style.GamePrice}>{item.price-item.discount}Р</div>
+                    {item.price > 0 ? <div className={Style.GamePrice}>{item.price-item.discount}Р</div> : ''}
                 </div>
             </div>
         </div>
@@ -104,7 +86,7 @@ const Example = (props) => {
       next={next}
       previous={previous}
     >
-      {/* <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} /> */}
+      {/* <CarouselIndicators dataList={dataList} activeIndex={activeIndex} onClickHandler={goToIndex} /> */}
       {slides}
       <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
       <CarouselControl direction="next" directionText="Next" onClickHandler={next} />

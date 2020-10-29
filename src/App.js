@@ -1,20 +1,13 @@
 import React from 'react';
-import Navbar from './components/Navbar/Navbar'
+import Layout from './Layout'
 import { Switch, Route } from 'react-router-dom'
-import Warranty from './components/pages/Warranty'
-import Catalog from './components/pages/Catalog'
-import Faq from './components/pages/FAQ'
-import CartList from './components/Navbar/Cart/CartList'
-import PopularLinks from './components/PopularLinks/PopularLinks'
-import Home from './components/pages/Home/Home'
-import Account from './components/Account/Account'
-import Createorder from './components/Createorder/Createorder'
-import Footer from './components/Footer/Footer'
+import AdminPanel from './components/AdminPanel/AdminPanel'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   // initial
+  if (localStorage.getItem('user') == null) localStorage.setItem('user', JSON.stringify({}))
   if (localStorage.getItem('cart') == null) localStorage.setItem('cart', JSON.stringify([]))
   if (localStorage.getItem('filter') == null) localStorage.setItem('filter', JSON.stringify({
     page: 1,
@@ -25,22 +18,14 @@ function App() {
   }))
   // <<<
   return (
-    <div className="App">
-      <div className="container">
-        <Navbar />
-        <PopularLinks />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/warranty' component={Warranty} />
-          <Route path='/catalog' component={Catalog} />
-          <Route path='/faq' component={Faq} />
-          <Route path='/cart' component={CartList} />
-          <Route path='/auth' component={Account} />
-          <Route path='/createorder' component={Createorder} />
-        </Switch>
-        {/* <Footer /> */}
+    <Switch>
+      <div className="App">
+        <div className="container">
+          <Route exact path='/' component={Layout} />
+          <Route exact path='/admin*' component={AdminPanel} />
+        </div>
       </div>
-    </div>
+    </Switch>
   );
 }
 

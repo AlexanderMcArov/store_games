@@ -10,9 +10,9 @@ export default function GamesList() {
 
     let obj = JSON.parse(localStorage.getItem('filter'))
     const [page,setPage] = useState(JSON.parse(obj.page))
+    const pageLength = 7
     obj.page = page
     localStorage.setItem('filter',JSON.stringify(obj))
-    const pageLength = 7
     const useStyles = makeStyles((theme) => ({
         pagination: {
             '& > *': {

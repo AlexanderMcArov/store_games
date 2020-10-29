@@ -32,12 +32,6 @@ function CategorysFilter() {
             <img src={src}></img> : ''}Карточки Steam</div>
             <div onClick={()=>setFilter(7)} className={Style.Item}>{filter == 7 ? 
             <img src={src}></img> : ''}Контроллер</div>
-            <div onClick={()=>setFilter(8)} className={Style.Item}>{filter == 8 ? 
-            <img src={src}></img> : ''}Русский язык</div>
-            <div onClick={()=>setFilter(9)} className={Style.Item}>{filter == 9 ? 
-            <img src={src}></img> : ''}Дешевле 100 руб.</div>
-            <div onClick={()=>setFilter(10)} className={Style.Item}>{filter == 10 ? 
-            <img src={src}></img> : ''}Дешевле 300 руб.</div>
         </div>
     )
 }
