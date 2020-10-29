@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Slider from 'react-slick'
 import Style from './SliderInfoBar.module.css'
-import Flag from '../../../../../images/flag-image.png'
-import Axios from 'axios'
 
 export default function VerticalSwipeToSlide(props) {
 
