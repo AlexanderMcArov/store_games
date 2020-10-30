@@ -21,8 +21,8 @@ function App() {
     <Switch>
       <div className="App">
         <div className="container">
-          <Route exact path='/' component={Layout} />
-          <Route exact path='/admin*' component={AdminPanel} />
+          <Route exact path='/adminpanel' component={AdminPanel} />
+          <Route path='/' component={Layout} />
         </div>
       </div>
     </Switch>

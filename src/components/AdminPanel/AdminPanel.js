@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Editor from './Editor'
 import Happyhour from './Happyhour'
 import {
@@ -23,7 +23,6 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
 const drawerWidth = 300;
-
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -53,62 +52,68 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PermanentDrawerLeft() {
     const classes = useStyles();
-
+    const [adminPage, setAdmPage] = useState(1)
     return (
         <div className={classes.root}>
-            <Router>
-                <CssBaseline />
-                <AppBar position="fixed" className={classes.appBar}>
-                    <Toolbar>
-                        <Typography variant="h6" noWrap>
-                            Admin Panel
-          </Typography>
-                    </Toolbar>
-                </AppBar>
-                <Drawer
-                    className={classes.drawer}
-                    variant="permanent"
-                    classes={{
-                        paper: classes.drawerPaper,
-                    }}
-                    anchor="left"
-                >
-                    <div className={classes.toolbar} />
-                    <Divider />
-                    <List>
-                        {[{
-                            text: 'Редактор',
-                            link: '/admin/editor',
-                            src: 'https://image.flaticon.com/icons/png/512/16/16941.png'
-                        },
-                        {
-                            text: 'Happy Hour',
-                            link: '/admin/happyhour',
-                            src: 'https://static.thenounproject.com/png/204832-200.png'
-                        }, {
-                            text: 'Сообщения',
-                            link: '/admin/messages',
-                            src: 'https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/messages-512.png'
-                        }].map((item, index) => (
-                            <ListItem button key={index}>
-                                <img style={{ width: '30px', marginRight: '20px' }} src={item.src}></img>
-                                <Link style={{ textDecoration: 'none', color: 'black' }} to={item.link}><ListItemText primary={item.text} /></Link>
-                            </ListItem>
-                        ))}
-                    </List>
-                    <Divider />
-                    <List>
-                        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                            <ListItem button key={text}>
-                                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItem>
-                        ))}
-                    </List>
-                </Drawer>
-                <main className={classes.content}>
-                    <div className={classes.toolbar} />
-                    <Switch>
+
+            <CssBaseline />
+            {/* <AppBar position="fixed" className={classes.appBar}>
+                <Toolbar>
+                    <Typography variant="h6" noWrap>
+                        Admin Panel
+                        </Typography>
+                </Toolbar>
+            </AppBar> */}
+            <Drawer
+                className={classes.drawer}
+                variant="permanent"
+                classes={{
+                    paper: classes.drawerPaper,
+                }}
+                anchor="left"
+            >
+                <div className={classes.toolbar} />
+                <Divider />
+                <List>
+                    {[{
+                        text: 'Редактор',
+                        link: 1,
+                        src: 'https://image.flaticon.com/icons/png/512/16/16941.png'
+                    },
+                    {
+                        text: 'Happy Hour',
+                        link: 3,
+                        src: 'https://static.thenounproject.com/png/204832-200.png'
+                    }, {
+                        text: 'Сообщения',
+                        link: 2,
+                        src: 'https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/messages-512.png'
+                    }].map((item, index) => (
+                        <ListItem button key={index}>
+                            <img style={{ width: '30px', marginRight: '20px' }} src={item.src}></img>
+                            <ListItemText primary={item.text} onClick={() => setAdmPage(item.link)} />
+                            {/* <Link style={{ textDecoration: 'none', color: 'black' }} to={item.link}><ListItemText primary={item.text} /></Link> */}
+                        </ListItem>
+                    ))}
+                </List>
+                <Divider />
+                <List>
+                    {[{
+                        text: 'Выход',
+                        link: '/'
+                    }].map((item, index) => (
+                        <ListItem button key={item.text + index}>
+                            <Link to={item.link}><ListItemText primary={item.text} /></Link>
+                        </ListItem>
+                    ))}
+                </List>
+            </Drawer>
+            <main className={classes.content}>
+                <div className={classes.toolbar} />
+                {adminPage == 1 ? <Editor /> : ''}
+                {adminPage == 2 ? 'MESSAGES' : ''}
+                {adminPage == 3 ? <Happyhour /> : ''}
+                {/* <Switch>
                         <Route exact path="/admin/editor">
                             <h1>Editor</h1>
                             <Editor />
@@ -120,9 +125,9 @@ export default function PermanentDrawerLeft() {
                             <h1>HappyHour</h1>
                             <Happyhour />
                         </Route>
-                    </Switch>
-                </main>
-            </Router>
+                    </Switch> */}
+            </main>
+
         </div>
     );
 }

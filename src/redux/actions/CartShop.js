@@ -4,6 +4,7 @@ import {
   CART_UPDATE_ITEM,
   CART_UPDATE_TOTALPRICE
 } from './constans'
+import { indigo } from '@material-ui/core/colors';
 
 export const cartAddItem = (item) => (dispatch, getState) => {
   const cart = [...getState().cartReducer.CartItems];
@@ -19,7 +20,8 @@ export const cartAddItem = (item) => (dispatch, getState) => {
     d.push({
       id: item.id,
       count: 1,
-      price: item.price
+      price: item.price,
+      discount: item.discount
     })
     localStorage.setItem('cart', JSON.stringify(d))
     dispatch({
@@ -54,8 +56,11 @@ export const cartTotalPrice = () => (dispatch, getState) => {
 }
 
 export const cartDeleteItem = (index) => (dispatch, getState) => {
+  console.log(index);
   let db = JSON.parse(localStorage.getItem('cart'))
-  db.splice(index,1)
+  db = db.map((item,ind)=>{
+    if(item.id == index) db.splice(ind,1)
+  })
   localStorage.removeItem('cart')
   localStorage.setItem('cart',JSON.stringify(db))
   dispatch({
@@ -63,3 +68,4 @@ export const cartDeleteItem = (index) => (dispatch, getState) => {
     cart: db
   })
 }
+

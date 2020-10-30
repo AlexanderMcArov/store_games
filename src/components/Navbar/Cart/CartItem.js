@@ -20,7 +20,7 @@ function CartItem(props) {
     //   }
     let localDB = []
     let endPrice = 0
-    endPrice = data.price - (data.price / 100 * data.discount)
+    if(data != null) endPrice = data.price - (data.price / 100 * data.discount)
     console.log(endPrice);
     console.log(data);
     console.log(count);
@@ -54,7 +54,8 @@ function CartItem(props) {
                 localDB[index] = {
                     id: item.id,
                     count: res,
-                    price: data.price - (data.price / 100 * data.discount)
+                    price: data.price - (data.price / 100 * data.discount),
+                    discount: data.discount
                 }
             }
         })
@@ -78,7 +79,7 @@ function CartItem(props) {
                     <span>{endPrice}Р</span>
                     <div>
                         <span>Итого: {endPrice * count}Р</span>        
-                        <button className={Style.Btn_Delete} onClick={()=>dispatch(cartDeleteItem())}>X</button>
+                        <button className={Style.Btn_Delete} onClick={()=>dispatch(cartDeleteItem(data.id))}>X</button>
                     </div> 
                 </div>
                 </>

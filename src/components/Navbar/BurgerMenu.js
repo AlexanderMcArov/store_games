@@ -9,6 +9,12 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
 import Burgerpng from '../../images/burger.png'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const StyledMenu = withStyles({
   paper: {
@@ -62,7 +68,7 @@ export default function CustomizedMenus() {
       >
         
       </Button> */}
-      <img style={{width: '15px'}} src={Burgerpng} onClick={handleClick}></img>
+      <img style={{ width: '15px' }} src={Burgerpng} onClick={handleClick}></img>
       <StyledMenu
         id="customized-menu"
         anchorEl={anchorEl}
@@ -74,20 +80,9 @@ export default function CustomizedMenus() {
           <ListItemIcon>
             <SendIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="Sent mail" />
+          <Link to='/adminpanel'><ListItemText primary="AdminPanel" /></Link>
         </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <DraftsIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Drafts" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <InboxIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Inbox" />
-        </StyledMenuItem>
+
       </StyledMenu>
     </div>
   );

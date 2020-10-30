@@ -33,13 +33,13 @@ export default function Navbar() {
                     {isSearch ? <div className={Style.LiveInput}><LiveInput /></div> : <span onClick={()=>setSearh(!isSearch)}><img src={Search}></img>ПОИСК</span>}
                 </div>
                 {!isSearch ? <div className={Style.Links}>
-                    <Link to='/warranty' className={Style.Link}>Гарантии</Link>
+                    {/* <Link to='/warranty' className={Style.Link}>Гарантии</Link>
                     <Link to='/catalog' className={Style.Link}>Каталог</Link>
-                    <Link to='/faq' className={Style.Link}>Помощь</Link>
+                    <Link to='/faq' className={Style.Link}>Помощь</Link> */}
                 </div> : <></>}
                 <div className={Style.Buttons_Links}>
-                    <Link to='/auth' className={Style.Buttons_Link}><img src={Lkicon}/>Личный кабинет</Link>
-                    <Link to='/myorders' className={Style.Buttons_Link}><img src={BuyHistory}/>Мои покупки</Link>
+                    <Link to='/' className={Style.Buttons_Link}><img src={Lkicon}/>Личный кабинет</Link>
+                    <Link to='/' className={Style.Buttons_Link}><img src={BuyHistory}/>Мои покупки</Link>
                     <Link to='/cart' className={Style.Buttons_Link}><Cart/></Link>
                 </div>
                 <BurgerMenu/>
