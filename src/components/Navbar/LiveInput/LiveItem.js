@@ -12,7 +12,7 @@ function LiveItem(props) {
         <div className={Style.SearchItem} onClick={()=>console.log(data)}>
             <div>{data.caption}</div>
             <div style={{color: 'blue'}}>{data.price}Р</div>
-            <button style={{padding: '2px 4px',border: 0, color:'blue'}} onClick={()=>{dispatch(cartAddItem(data))}}>BUY</button>
+            <button className={Style.btn} onClick={()=>{dispatch(cartAddItem(data))}}>BUY</button>
         </div>
     )
 }

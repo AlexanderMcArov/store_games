@@ -33,6 +33,7 @@ function CartList() {
                     cartList.map((item, index) => {
                         console.log(item);
                         if (item != null) return <CartItem data={item} index={index} key={index} />
+                        else return false
                     }) : <div className={Style.CartEmpty}>Корзина пуста...</div>
                 }
                 {cartList.length > 0 ?

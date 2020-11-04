@@ -5,14 +5,25 @@ import { useSelector } from 'react-redux'
 import GameItem from './GameItem'
 import Style from './GamesList.module.css'
 import Axios from 'axios'
+import Item from 'antd/lib/list/Item';
 
 export default function GamesList() {
 
+    const cartList = useSelector(state => {
+        console.log('cartItems: ', state.cartReducer.CartItems);
+        return state.cartReducer.CartItems
+    })
+    let cart = []
+    cartList.forEach(item => {
+        cart.push(item.id)
+    })
+
+
     let obj = JSON.parse(localStorage.getItem('filter'))
-    const [page,setPage] = useState(JSON.parse(obj.page))
+    const [page, setPage] = useState(JSON.parse(obj.page))
     const pageLength = 7
     obj.page = page
-    localStorage.setItem('filter',JSON.stringify(obj))
+    localStorage.setItem('filter', JSON.stringify(obj))
     const useStyles = makeStyles((theme) => ({
         pagination: {
             '& > *': {
@@ -47,13 +58,13 @@ export default function GamesList() {
 
     const [data, setData] = useState([])
 
-    const changePage = (e,newPage) => {
+    const changePage = (e, newPage) => {
         console.log(newPage);
         setPage(newPage)
     }
 
-    let pageData = data.map((item,index)=>{
-        if(index > 0 && index < 9) return item
+    let pageData = data.map((item, index) => {
+        if (index > 0 && index < 9) return item
     })
 
     useEffect(() => {
@@ -72,17 +83,25 @@ export default function GamesList() {
                 setData(res.data)
             })
     }, [section, genres, category])
-    
+
+    let ItemList = []
+
+    data.forEach((item, index) => {
+        if (item.price - parseInt(item.price / 100 * item.discount) > price[0] && item.price - parseInt(item.price / 100 * item.discount) < price[1]) {
+            ItemList.push(item)
+        }
+    })
+
     return (
         <div className={Style.Main}>
             <div className={classes.pagination}>
-            {data.length != 0 ? <Pagination page={page} onChange={changePage} count={Math.ceil(data.length/pageLength)} color="primary" /> : ''}
+                {data.length != 0 ? <Pagination page={page} onChange={changePage} count={Math.ceil(ItemList.length / pageLength)} color="primary" /> : ''}
             </div>
-            {data.length == 0 ? <img className={Style.EmptyImg} src="https://img.icons8.com/color/452/void.png"></img> :
-                data.slice(page*pageLength-pageLength,pageLength*page).map((item,index) => {
-                    if (item.price > price[0] && item.price < price[1]) return <GameItem data={item} key={item.id + '-GameItem'} />
-                })
-            }
+            {data.length == 0 ? <img className={Style.EmptyImg} src="https://img.icons8.com/color/452/void.png"></img> : <>
+            {ItemList.slice(page * pageLength - pageLength, pageLength * page).map(item=>{
+                return <GameItem cart={cart} data={item} key={item.id + '-GameItem'} />
+            })}
+            </>}
         </div>
     )
 }

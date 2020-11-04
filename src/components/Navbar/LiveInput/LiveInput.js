@@ -25,6 +25,8 @@ function LiveInput() {
             fetch('http://localhost:3333/goods?caption_like='+inpValue)
                 .then(res=>res.json())
                 .then(data=>setData(data))
+        }else{
+            setData([])
         }
     },[inpValue])
 

@@ -20,7 +20,7 @@ function CartItem(props) {
     //   }
     let localDB = []
     let endPrice = 0
-    if(data != null) endPrice = data.price - (data.price / 100 * data.discount)
+    if (data != null) endPrice = data.price - (data.price / 100 * data.discount)
     console.log(endPrice);
     console.log(data);
     console.log(count);
@@ -34,7 +34,7 @@ function CartItem(props) {
         if (localDB.length > 0) {
             localDB.map(item => {
                 console.log('Tuta', item);
-                if (data.id == item.id) {
+                if ((data.id != null) == (item.id != null)) {
                     console.log('cacacac', item.count);
                     setCount(item.count)
                 }
@@ -50,7 +50,7 @@ function CartItem(props) {
         res = a + int
         if (res <= 0) res = 1
         localDB.map((item, index) => {
-            if (data.id == item.id) {
+            if ((data.id != null) == (item.id != null)) {
                 localDB[index] = {
                     id: item.id,
                     count: res,
@@ -70,20 +70,20 @@ function CartItem(props) {
             <div className={Style.Header}>
                 {endPrice == 'NaN' ? 'Loading...' :
                     <><span>{data.caption}</span>
-                    <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-                    <div className={Style.Counter}>
-                    <button className={Style.Btns} onClick={()=>changeCount(-1)}>{'<'}</button>
-                    <span>{count}</span>
-                    <button className={Style.Btns} onClick={()=>changeCount(1)}>{'>'}</button>
-                    </div>
-                    <span>{endPrice}Р</span>
-                    <div>
-                        <span>Итого: {endPrice * count}Р</span>        
-                        <button className={Style.Btn_Delete} onClick={()=>dispatch(cartDeleteItem(data.id))}>X</button>
-                    </div> 
-                </div>
-                </>
-                }  
+                        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                            <div className={Style.Counter}>
+                                <button className={Style.Btns} onClick={() => changeCount(-1)}>{'<'}</button>
+                                <span>{count}</span>
+                                <button className={Style.Btns} onClick={() => changeCount(1)}>{'>'}</button>
+                            </div>
+                            <span>{parseInt(endPrice)}Р</span>
+                            <div>
+                                <span>Итого: {parseInt(endPrice * count)}Р</span>
+                                <button className={Style.Btn_Delete} onClick={() => dispatch(cartDeleteItem(data.id))}>X</button>
+                            </div>
+                        </div>
+                    </>
+                }
             </div>
         </div>
     )

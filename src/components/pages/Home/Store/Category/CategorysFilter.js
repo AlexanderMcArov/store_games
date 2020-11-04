@@ -9,6 +9,11 @@ function CategorysFilter() {
     obj.category = filter
     localStorage.setItem('filter',JSON.stringify(obj))
 
+    function handleClick(id){
+        if(id == filter) setFilter(0)
+        else setFilter(id)
+    }
+
     const dispatch = useDispatch()
     dispatch(changeCategorySettings(filter))
     console.log(filter);
@@ -16,22 +21,14 @@ function CategorysFilter() {
 
     return (
         <div style={{marginBottom: '15px'}}>
-            <div className={Style.Header}>Категории{filter > 0 ? 
-            <img onClick={()=>setFilter(0)} src="https://findicons.com/files/icons/1681/siena/256/undo_red.png"></img>:''}</div>
-            <div onClick={()=>setFilter(1)} className={Style.Item}>{filter == 1 ? 
-            <img src={src}></img> : ''}Одиночная</div>
-            <div onClick={()=>setFilter(2)} className={Style.Item}>{filter == 2 ? 
-            <img src={src}></img> : ''}Кооператив</div>
-            <div onClick={()=>setFilter(3)} className={Style.Item}>{filter == 3 ? 
-            <img src={src}></img> : ''}Мультиплеер</div>
-            <div onClick={()=>setFilter(4)} className={Style.Item}>{filter == 4 ? 
-            <img src={src}></img> : ''}Ранний доступ</div>
-            <div onClick={()=>setFilter(5)} className={Style.Item}>{filter == 5 ? 
-            <img src={src}></img> : ''}С достижениями</div>
-            <div onClick={()=>setFilter(6)} className={Style.Item}>{filter == 6 ? 
-            <img src={src}></img> : ''}Карточки Steam</div>
-            <div onClick={()=>setFilter(7)} className={Style.Item}>{filter == 7 ? 
-            <img src={src}></img> : ''}Контроллер</div>
+            <div className={Style.Header}>Категории</div>
+            <div onClick={()=>handleClick(1)} className={filter==1?Style.ActiveSection:Style.Item}>Одиночная</div>
+            <div onClick={()=>handleClick(2)} className={filter==2?Style.ActiveSection:Style.Item}>Кооператив</div>
+            <div onClick={()=>handleClick(3)} className={filter==3?Style.ActiveSection:Style.Item}>Мультиплеер</div>
+            <div onClick={()=>handleClick(4)} className={filter==4?Style.ActiveSection:Style.Item}>Ранний доступ</div>
+            <div onClick={()=>handleClick(5)} className={filter==5?Style.ActiveSection:Style.Item}>С достижениями</div>
+            <div onClick={()=>handleClick(6)} className={filter==6?Style.ActiveSection:Style.Item}>Карточки Steam</div>
+            <div onClick={()=>handleClick(7)} className={filter==7?Style.ActiveSection:Style.Item}>Контроллер</div>
         </div>
     )
 }

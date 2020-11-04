@@ -10,35 +10,26 @@ export default function Sections() {
     obj.section = filter
     localStorage.setItem('filter',JSON.stringify(obj))
 
+    function handleClick(id){
+        if(id == filter) setFilter(0)
+        else setFilter(id)
+    }
+
     dispatch(changeSectionSettings(filter))
     return (
         <div style={{marginBottom: '15px'}}>
-            <div className={Style.CategorySections}>Разделы{filter != '' ? 
-            <img onClick={()=>setFilter(0)} src="https://findicons.com/files/icons/1681/siena/256/undo_red.png"></img>:''}</div>
-            <div onClick={()=>setFilter(1)} className={Style.CategorySectionsItem}>
-    {filter == 1 ? <img src="https://avatanplus.com/files/resources/original/5b7c152b062e01655cb2b011.png"></img> : ''}
-    Steam</div>
-            <div onClick={()=>setFilter(2)} className={Style.CategorySectionsItem}>
-    {filter == 2 ? <img src="https://avatanplus.com/files/resources/original/5b7c152b062e01655cb2b011.png"></img> : ''}
-                Origin</div>
-            <div onClick={()=>setFilter(3)} className={Style.CategorySectionsItem}>
-    {filter == 3 ? <img src="https://avatanplus.com/files/resources/original/5b7c152b062e01655cb2b011.png"></img> : ''}
-                Uplay</div>
-            <div onClick={()=>setFilter(4)} className={Style.CategorySectionsItem}>
-    {filter == 4 ? <img src="https://avatanplus.com/files/resources/original/5b7c152b062e01655cb2b011.png"></img> : ''}
-                Battle.net</div>
-            <div onClick={()=>setFilter(5)} className={Style.CategorySectionsItem}>
-    {filter == 5 ? <img src="https://avatanplus.com/files/resources/original/5b7c152b062e01655cb2b011.png"></img> : ''}
-                Xbox</div>
-            <div onClick={()=>setFilter(6)} className={Style.CategorySectionsItem}>
-    {filter == 6 ? <img src="https://avatanplus.com/files/resources/original/5b7c152b062e01655cb2b011.png"></img> : ''}
-                PlayStation</div>
-            <div onClick={()=>setFilter(7)} className={Style.CategorySectionsItem}>
-    {filter == 7 ? <img src="https://avatanplus.com/files/resources/original/5b7c152b062e01655cb2b011.png"></img> : ''}
-                Mac OC X</div>
-            <div onClick={()=>setFilter(8)} className={Style.CategorySectionsItem}>
-    {filter == 8 ? <img src="https://avatanplus.com/files/resources/original/5b7c152b062e01655cb2b011.png"></img> : ''}
-                Linux + Steam OC</div>
+            <div className={Style.CategorySections}>Разделы
+            {/* {filter != '' ? 
+            <img onClick={()=>setFilter(0)} src="https://findicons.com/files/icons/1681/siena/256/undo_red.png"></img>:''} */}
+            </div>
+            <div onClick={()=>handleClick(1)} className={filter==1 ? Style.ActiveSection:Style.CategorySectionsItem}>Steam</div>
+            <div onClick={()=>handleClick(2)} className={filter==2 ? Style.ActiveSection:Style.CategorySectionsItem}>Origin</div>
+            <div onClick={()=>handleClick(3)} className={filter==3 ? Style.ActiveSection:Style.CategorySectionsItem}>Uplay</div>
+            <div onClick={()=>handleClick(4)} className={filter==4 ? Style.ActiveSection:Style.CategorySectionsItem}>Battle.net</div>
+            <div onClick={()=>handleClick(5)} className={filter==5 ? Style.ActiveSection:Style.CategorySectionsItem}>Xbox</div>
+            <div onClick={()=>handleClick(6)} className={filter==6 ? Style.ActiveSection:Style.CategorySectionsItem}>PlayStation</div>
+            <div onClick={()=>handleClick(7)} className={filter==7 ? Style.ActiveSection:Style.CategorySectionsItem}>Mac OC X</div>
+            <div onClick={()=>handleClick(8)} className={filter==8 ? Style.ActiveSection:Style.CategorySectionsItem}>Linux + Steam OC</div>
         </div>
     )
 }

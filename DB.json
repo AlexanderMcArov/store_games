@@ -62,7 +62,7 @@
     },
     {
       "id": 9,
-      "src": "https://zaka-zaka.com/images/game/g732/grand-theft-auto-v-criminal-enterprise-starter-pack.jpg",
+      "src": "https://zaka-zaka.com/images/game/g732/grand-theft-auto-5-social-club.jpg",
       "altText": "as",
       "caption": "GRAND THEFT AUTO V.",
       "discription": "Любите дворцовые интриги? Примерьте на себе корону правителя скромного графства или даже целой империи! Вы можете править с гордо поднятой головой на самых разнообразных землях, начиная от территории современ...",
@@ -196,7 +196,40 @@
       "id": 20
     }
   ],
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "password": 123456,
+      "name": "Sanya",
+      "admin": false,
+      "listBuy": []
+    },
+    {
+      "id": 2,
+      "password": 654321,
+      "name": "admin",
+      "admin": true,
+      "listBuy": []
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "message": "Sanya"
+    },
+    {
+      "id": 2,
+      "message": "admin"
+    },
+    {
+      "message": "dsadddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsa",
+      "id": 3
+    },
+    {
+      "message": "dsa",
+      "id": 4
+    }
+  ],
   "lastSell": [
     {
       "id": 1,
@@ -220,18 +253,6 @@
       "discription": "Hey, Halloween lovers! This year’s Halloween is coming. To celebrate this spooky occasion, we are offering a whopping 40% discount on all items on Themeum. The offer is valid from 28th October to 2nd November inclusive.  40% Halloween Discount  Save 40% on all items on Themeum. To enjoy this discount, use HALLOWEEN40 as the coupon code during the checkout. Offer valid from 28th October to 3rd November inclusive.  <br/>So, what are you waiting for? Grab this opportunity right now.",
       "discount": "0",
       "price": "0",
-      "section": 2,
-      "genres": 3,
-      "category": 3
-    },
-    {
-      "id": 2,
-      "src": "https://zaka-zaka.com/images/slider/732/1602842381-slayd.jpg?1602842734",
-      "altText": "as",
-      "caption": "as",
-      "discription": "Любите дворцовые интриги? Примерьте на себе корону правителя скромного графства или даже целой империи! Вы можете править с гордо поднятой головой на самых разнообразных землях, начиная от территории современ...",
-      "discount": 24,
-      "price": 1200,
       "section": 2,
       "genres": 3,
       "category": 3

@@ -11,3 +11,23 @@
     border: 0;
     border-radius: 10px;
 }
+.Messages{
+    display: flex;
+    flex-direction: column;
+}
+.MessagesItem_Title{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 10px;
+    border-bottom: black 1px solid;
+}
+.MessagesItem_Main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: black 1px solid;
+}
+.MessagesItem_Body{
+    padding: 5px;
+}

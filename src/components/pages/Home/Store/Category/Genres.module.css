@@ -26,3 +26,17 @@
 .GenresSectionsItem:hover{
     cursor: pointer;
 }
+
+.ActiveSection{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    color: blue;
+    padding: 3px 0px 3px 35px;
+}
+.ActiveSection:hover{
+    cursor: pointer;
+}

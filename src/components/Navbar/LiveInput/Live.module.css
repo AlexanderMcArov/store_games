@@ -38,7 +38,15 @@
     background: rgb(230, 230, 230);
 }
 
-
+.btn{
+  font-weight: 700;
+  border: 0;
+  color: rgba(100, 50, 100, .7);
+  background: 0;
+}
+.btn:hover{
+  color: rgba(250, 80, 250, 1);
+}
   
   /* Handle */
   ::-webkit-scrollbar-thumb {

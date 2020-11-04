@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Editor from './Editor'
 import Happyhour from './Happyhour'
+import Messages from './Messages'
 import {
     BrowserRouter as Router,
     Switch,
@@ -111,7 +112,7 @@ export default function PermanentDrawerLeft() {
             <main className={classes.content}>
                 <div className={classes.toolbar} />
                 {adminPage == 1 ? <Editor /> : ''}
-                {adminPage == 2 ? 'MESSAGES' : ''}
+                {adminPage == 2 ? <Messages/> : ''}
                 {adminPage == 3 ? <Happyhour /> : ''}
                 {/* <Switch>
                         <Route exact path="/admin/editor">

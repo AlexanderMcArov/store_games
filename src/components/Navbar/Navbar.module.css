@@ -54,14 +54,22 @@
     padding: 0px 25px;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .Buttons_Link{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
     color: black;
     text-decoration: none;
     border: 0;
     margin: 0px 10px;
     font-weight: 600;
     font-size: 14px;
+}
+.Buttons_Link_admin{
+    border-bottom: red 2px solid;
+    padding: 1px
 }
 .Buttons_Link:hover{
     color: #3490d7;
@@ -73,4 +81,13 @@
 .LiveInput{
     display: flex;
     flex-direction: row;
+}
+
+.Account{
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.Account img{
+    width: 15px;
 }

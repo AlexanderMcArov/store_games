@@ -1,30 +1,35 @@
 
 import {
-    AUTH_USER
-  } from './constans'
-  
-  export const authUser = (item) => (dispatch, getState) => {
-    const cart = [...getState().cartReducer.CartItems];
-    const isInCart = cart.some((cartItem) => {
-      return cartItem.id === item.id;
-    });
-    if (!isInCart) {
-      cart.push(item);
-      console.log(cart);
-      let d = localStorage.getItem('cart')
-      console.log('LocalStorage: ', d);
-      d = JSON.parse(d)
-      d.push({
-        id: item.id,
-        count: 1,
-        price: item.price
-      })
-      localStorage.setItem('cart', JSON.stringify(d))
-      dispatch({
-        type: CART_ADD_ITEM,
-        cart
-      })
-    };
-  }
-  
-  
+  LOGIN_USER
+} from './constans'
+
+export const loginUser = (name, password) => (dispatch, getState) => {
+  const user = {...getState().userReducer.userData};
+  fetch('http://localhost:3333/users?name=' + name +
+    '&password=' + password)
+    .then(res => res.json())
+    .then(data => {
+      console.log('Приветик. :-)');
+      console.log(data);
+      if(data.length > 0){
+        localStorage.removeItem('user')
+        localStorage.setItem('user',JSON.stringify(data[0]))
+        dispatch({
+          type: LOGIN_USER,
+          userData: data[0]
+        })
+        console.log('Го го го.');
+      }else{
+        console.log('Неверный пароль.');
+        dispatch({
+          type: LOGIN_USER,
+          userData: user
+        })
+      }
+    })
+    .catch(rej => {
+      console.log('Пошел нахер.');      
+    })
+};
+
+

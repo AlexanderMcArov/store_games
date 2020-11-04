@@ -6,6 +6,6 @@ import AuthUser from './AuthUser'
 export default combineReducers({
     cartReducer: CartShop,
     FilterReducer: GameListFilter,
-    AuthReducer: AuthUser
+    userReducer: AuthUser
 })
 

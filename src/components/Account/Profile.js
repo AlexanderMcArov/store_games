@@ -1,7 +1,15 @@
 import React from 'react'
 import Style from './Account.module.css'
+import { useSelector, useDispatch } from 'react-redux'
+
 function Profile(props) {
-    let userData = props.userData
+
+    const dispatch = useDispatch()
+    
+    const userData = useSelector((state) => {
+        return state.userReducer.userData
+    })
+
     return (
         <div className={Style.Profile_Main}>
             <div className={Style.Profile_Header}>
@@ -13,4 +21,6 @@ function Profile(props) {
     )
 }
 
+
+// [a,b] = [b,a]
 export default Profile

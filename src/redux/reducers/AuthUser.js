@@ -1,26 +1,27 @@
 import {
-    AUTH_USER,
+    LOGIN_USER,
     CHANGE_FILTER_GENRES,
     CHANGE_FILTER_CATEGORY,
     CHANGE_FILTER_PRICE
 } from '../actions/constans'
 
 const initialState = {
-        user: {
-            name: null,
-            email: null,
-            admin: false
-        }
+    userData: {
+        name: '',
+        email: null,
+        admin: false,
+        listBuy: []
+    }
 }
 
-export default function gameListFilterReducer(state = initialState, action){
-    console.log(action);
+export default function Reducer(state = initialState, action) {
+    console.log('REDUCER:::', action.userData);
     switch (action.type) {
-        case AUTH_USER:
-            return{
+        case LOGIN_USER:
+            return {
                 ...state,
-                user: action.user
-            }    
+                userData: action.userData
+            }
         default:
             return state
     }

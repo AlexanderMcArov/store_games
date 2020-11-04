@@ -55,12 +55,14 @@ export const cartTotalPrice = () => (dispatch, getState) => {
   })
 }
 
-export const cartDeleteItem = (index) => (dispatch, getState) => {
-  console.log(index);
+export const cartDeleteItem = (cartID) => (dispatch, getState) => {
   let db = JSON.parse(localStorage.getItem('cart'))
-  db = db.map((item,ind)=>{
-    if(item.id == index) db.splice(ind,1)
+  console.log('DeleteItemID: ',cartID);
+  console.log('LocalStorage: Cart: ',db)
+  db.forEach((item,ind)=>{
+    if(item.id == cartID) db.splice(ind,1)
   })
+  console.log('DELETESITEMS: ',db);
   localStorage.removeItem('cart')
   localStorage.setItem('cart',JSON.stringify(db))
   dispatch({
