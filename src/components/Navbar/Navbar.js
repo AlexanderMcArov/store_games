@@ -44,9 +44,9 @@ export default function Navbar() {
                     <Link to='/faq' className={Style.Link}>Помощь</Link> */}
                 </div> : <></>}
                 <div className={Style.Buttons_Links}>
-                    {userData.name.length > 0 ?
-                        <Link to='/auth' className={Style.Buttons_Link}><img src="https://static.thenounproject.com/png/3183052-200.png"></img> {userData.name}</Link> :
-                        <Link to='/auth' className={Style.Buttons_Link}><img src={Lkicon} />Личный кабинет</Link>}
+                    {userData.name && userData.name.length > 0 ?
+                        <Link to='/' className={Style.Buttons_Link}><img src="https://static.thenounproject.com/png/3183052-200.png"></img> {userData.name}</Link> :
+                        <Link to='/' className={Style.Buttons_Link}><img src={Lkicon} />Личный кабинет</Link>}
                     <Link to='/' className={Style.Buttons_Link}><img src={BuyHistory} />Мои покупки</Link>
                     <Link to='/cart' className={Style.Buttons_Link}><Cart /></Link>
                 </div>

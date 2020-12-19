@@ -44,7 +44,7 @@ export default function VerticalSwipeToSlide(props) {
                 </div>
             </div>
             <Slider {...settings}>
-                {dataList.map(item => {
+                {dataList ? dataList.map(item => {
                     return (
                         <div className={Style.GameItem}>
                             <img src={item.src}></img>
@@ -57,7 +57,7 @@ export default function VerticalSwipeToSlide(props) {
                             </div>
                         </div>
                     )
-                })}
+                }) : 'Loading...'}
             </Slider>
         </div>
     );

@@ -45,7 +45,7 @@ export const cartTotalPrice = () => (dispatch, getState) => {
   let db = JSON.parse(localStorage.getItem('cart'))
   if (db.length > 0) {
     db.map(item => {
-      let a = item.price * item.count
+      let a = parseInt(item.price - (item.price / 100 * item.discount) * item.count)
       res += a
     })
   }

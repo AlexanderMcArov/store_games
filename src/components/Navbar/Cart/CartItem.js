@@ -76,9 +76,9 @@ function CartItem(props) {
                                 <span>{count}</span>
                                 <button className={Style.Btns} onClick={() => changeCount(1)}>{'>'}</button>
                             </div>
-                            <span>{parseInt(endPrice)}Р</span>
+                            <span>{parseInt(data.price - (data.price / 100 * data.discount))}Р</span>
                             <div>
-                                <span>Итого: {parseInt(endPrice * count)}Р</span>
+                                <span>Итого: {parseInt(data.price - (data.price / 100 * data.discount) * count)}Р</span>
                                 <button className={Style.Btn_Delete} onClick={() => dispatch(cartDeleteItem(data.id))}>X</button>
                             </div>
                         </div>

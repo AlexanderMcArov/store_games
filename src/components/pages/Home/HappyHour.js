@@ -17,7 +17,7 @@ import Style from './HappyHour.module.css'
 const Example = (props) => {
   const [dataList,setDataList] = useState([])
   useEffect(() => {
-    Axios.get('http://localhost:3333/HappyHour/')
+    Axios.get('https://nodejs-e0e4f.firebaseio.com/HappyHour.json')
         .then(res => {
             console.log(res.data)
             setDataList(res.data)

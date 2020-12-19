@@ -42,7 +42,7 @@ function CartList() {
                         <button style={{ fontWeight: 600, border: 0 }} className={Style.Link} onClick={() => {
 
                         }}>Оплатить</button>
-                    </div> : ''
+                    </div> : <div className={Style.CartEmpty}>Корзина пуста...</div>
                 }
             </div>
         </div>

@@ -7,7 +7,7 @@ export default function Catalog() {
     const [datas, setDatas] = useState([])
 
     useEffect(() => {
-        Axios.get('http://localhost:3333/goods')
+        Axios.get('https://nodejs-e0e4f.firebaseio.com/goods.json')
             .then(res => {
                 console.log(res.data)
                 setDatas(res.data)

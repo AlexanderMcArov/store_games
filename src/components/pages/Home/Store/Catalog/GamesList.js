@@ -77,7 +77,7 @@ export default function GamesList() {
         }
         req += `price?_start=${price[0]}&_end=${price[1]}`
         console.log('FILTERSETTINGS:::', req);
-        Axios.get('http://localhost:3333/goods' + req)
+        Axios.get('https://nodejs-e0e4f.firebaseio.com/goods.json' + req)
             .then(res => {
                 console.log(res.data)
                 setData(res.data)
@@ -88,7 +88,13 @@ export default function GamesList() {
 
     data.forEach((item, index) => {
         if (item.price - parseInt(item.price / 100 * item.discount) > price[0] && item.price - parseInt(item.price / 100 * item.discount) < price[1]) {
-            ItemList.push(item)
+            if (section != 0 || genres != 0 || category != 0) {
+                if (item.section == section) ItemList.push(item)
+                if (item.genres == genres) ItemList.push(item)
+                if (item.category == category) ItemList.push(item)
+            } else {
+                ItemList.push(item)
+            }
         }
     })
 
@@ -98,9 +104,9 @@ export default function GamesList() {
                 {data.length != 0 ? <Pagination page={page} onChange={changePage} count={Math.ceil(ItemList.length / pageLength)} color="primary" /> : ''}
             </div>
             {data.length == 0 ? <img className={Style.EmptyImg} src="https://img.icons8.com/color/452/void.png"></img> : <>
-            {ItemList.slice(page * pageLength - pageLength, pageLength * page).map(item=>{
-                return <GameItem cart={cart} data={item} key={item.id + '-GameItem'} />
-            })}
+                {ItemList.slice(page * pageLength - pageLength, pageLength * page).map(item => {
+                    return <GameItem cart={cart} data={item} key={item.id + '-GameItem'} />
+                })}
             </>}
         </div>
     )

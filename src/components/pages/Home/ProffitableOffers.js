@@ -19,7 +19,7 @@ export default function VerticalSwipeToSlide() {
         swipeToSlide: true,
         speed: 2000,
         autoplay: true,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 1500,
         nextArrow: <></>,
         prevArrow: <></>,
         beforeChange: function (currentSlide, nextSlide) {
@@ -31,7 +31,7 @@ export default function VerticalSwipeToSlide() {
     };
 
     useEffect(()=>{
-        Axios.get('http://localhost:3333/goods?discount_gte=50&discount_lte=100')
+        Axios.get('https://nodejs-e0e4f.firebaseio.com/goods.json?discount_gte=50&discount_lte=100')
             .then(res=>setDataList(res.data))
     },[])
 

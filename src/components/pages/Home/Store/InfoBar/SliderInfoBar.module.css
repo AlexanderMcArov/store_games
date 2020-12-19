@@ -65,6 +65,7 @@
     border: #dc3545 1px solid;
     color: #dc3545;
     padding: 1px 2px;
+    white-space: nowrap;
 }
 .PriceMain{
     color: white;

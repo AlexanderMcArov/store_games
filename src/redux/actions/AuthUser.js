@@ -18,9 +18,7 @@ export const loginUser = (name, password) => (dispatch, getState) => {
           type: LOGIN_USER,
           userData: data[0]
         })
-        console.log('Го го го.');
       }else{
-        console.log('Неверный пароль.');
         dispatch({
           type: LOGIN_USER,
           userData: user
@@ -28,7 +26,7 @@ export const loginUser = (name, password) => (dispatch, getState) => {
       }
     })
     .catch(rej => {
-      console.log('Пошел нахер.');      
+     
     })
 };
 
